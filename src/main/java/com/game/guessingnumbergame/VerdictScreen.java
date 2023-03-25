@@ -10,7 +10,7 @@ import java.io.IOException;
 public class VerdictScreen extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("verdictscreen-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGameScreen.class.getResource("verdictscreen-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Guess The Number!!");
         stage.setScene(scene);
