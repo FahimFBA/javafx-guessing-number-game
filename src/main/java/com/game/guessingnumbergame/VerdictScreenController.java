@@ -28,12 +28,13 @@ public class VerdictScreenController {
     boolean win;
 
 
-    public void setVerdict(boolean win, String text) {
+    public void setVerdict(boolean win, String text, int lastClicked) {
         this.win = win;
         if (win) {
             UserName.setText(text);
             Verdict.setText("You Won!");
             WinningCircle.setVisible(true);
+            WinningLabel.setText(lastClicked + "");
             WinningLabel.setVisible(true);
             LoosingCircle.setVisible(false);
             LossingLabel.setVisible(false);
@@ -43,6 +44,7 @@ public class VerdictScreenController {
             WinningCircle.setVisible(false);
             WinningLabel.setVisible(false);
             LoosingCircle.setVisible(true);
+            LossingLabel.setText(lastClicked + "");
             LossingLabel.setVisible(true);
         }
     }

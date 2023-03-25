@@ -168,13 +168,13 @@ public class MainGameScreenController {
 //        }
 //    }
 
-    void CallVerdict(boolean win)
+    void CallVerdict(boolean win, int lastClickedCircle)
     {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("verdictscreen-view.fxml"));
             Parent root = fxmlLoader.load();
             VerdictScreenController controller = fxmlLoader.getController();
-            controller.setVerdict(win, UserName.getText());
+            controller.setVerdict(win, UserName.getText(), lastClickedCircle);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
@@ -189,22 +189,29 @@ public class MainGameScreenController {
     @FXML
     void CircleClick(MouseEvent event) {
         Circle clickedCircle = (Circle) event.getSource();
-        attempt--;
+
 
         if (attempt > 0 && attempt <= 2)
         {
+            attempt--;
             attempts_left.setText(attempt + "");
             if (clickedCircle == circle_1) {
                 if (random == 1) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 1);
+                } else if (random != 2 && attempt == 0) {
+                    System.out.println("You Lost");
+                    CallVerdict(false, 1);
                 } else {
                     System.out.println("You Lost");
                 }
             } else if (clickedCircle == circle_2) {
                 if (random == 2) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 2);
+                } else if (random != 2 && attempt == 0) {
+                    System.out.println("You Lost");
+                    CallVerdict(false, 2);
                 } else {
                     System.out.println("You Lost");
                 }
@@ -213,7 +220,10 @@ public class MainGameScreenController {
                 // Do something for ClickedCircle3
                 if (random == 3) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 3);
+                } else if (random != 3 && attempt == 0){
+                    System.out.println("You Lost");
+                    CallVerdict(false, 3);
                 } else {
                     System.out.println("You Lost");
                 }
@@ -221,35 +231,47 @@ public class MainGameScreenController {
                 // Do something for ClickedCircle4
                 if (random == 4) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 4);
+                } else if (random != 4 && attempt == 0) {
+                    System.out.println("You Lost");
+                    CallVerdict(false, 4);
                 } else {
-                    System.out.println("You Lost");}
+                    System.out.println("You Lost");
+                }
         }
 
         }
         else if (attempt <= 0)
         {
-            CallVerdict(false);
+            attempt--;
+            attempts_left.setText(attempt + "");
+            CallVerdict(false, 0);
         }
     }
 
     @FXML
     void LabelClick(MouseEvent event) {
         Label clickedLabel = (Label) event.getSource();
-        attempt--;
         if (attempt > 0 && attempt <= 2) {
+            attempt--;
             attempts_left.setText(attempt + "");
             if (clickedLabel == label1) {
                 if (random == 1) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 1);
+                } else if (random != 2 && attempt == 0) {
+                    System.out.println("You Lost");
+                    CallVerdict(false, 1);
                 } else {
                     System.out.println("You Lost");
                 }
             } else if (clickedLabel == label2) {
                 if (random == 2) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 2);
+                } else if (random != 2 && attempt == 0) {
+                    System.out.println("You Lost");
+                    CallVerdict(false, 2);
                 } else {
                     System.out.println("You Lost");
                 }
@@ -258,7 +280,10 @@ public class MainGameScreenController {
                 // Do something for ClickedCircle3
                 if (random == 3) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 3);
+                } else if (random != 3 && attempt == 0){
+                    System.out.println("You Lost");
+                    CallVerdict(false, 3);
                 } else {
                     System.out.println("You Lost");
                 }
@@ -266,13 +291,18 @@ public class MainGameScreenController {
                 // Do something for ClickedCircle4
                 if (random == 4) {
                     System.out.println("You Won");
-                    CallVerdict(true);
+                    CallVerdict(true, 4);
+                } else if (random != 4 && attempt == 0) {
+                    System.out.println("You Lost");
+                    CallVerdict(false, 4);
                 } else {
                     System.out.println("You Lost");
                 }
             }
-        } else if (attempt < 0) {
-            CallVerdict(false);
+        } else if (attempt <= 0) {
+            attempt--;
+            attempts_left.setText(attempt + "");
+            CallVerdict(false, 0);
         }
 
     }
