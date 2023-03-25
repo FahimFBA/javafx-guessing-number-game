@@ -51,6 +51,7 @@ public class MainGameScreenController {
         // random number generator for between 1 to 4
         random = (int) (Math.random() * 4 + 1);
         System.out.println(random);
+        hiddenLabel.setText("Your Number is Generated. Guess the Number and select the proper Circle.");
         // check the circle clicked match with the random value or not
 //        if (random == 1) {
 //            circle_1.setVisible(true);
@@ -95,7 +96,6 @@ public class MainGameScreenController {
     @FXML
     void setSubmitButton(ActionEvent event) {
         String name = UserName.getText();
-        hiddenLabel.setText("Your Number is Generated. Guess the Number and select the proper Circle.");
     }
 
 //    void handleCircleClick(MouseEvent event) {
