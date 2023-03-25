@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="560.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.guessingnumbergame.VerdictScreenController">
+<AnchorPane prefHeight="560.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.game.guessingnumbergame.VerdictScreenController">
    <children>
       <Label fx:id="UserName" layoutX="140.0" layoutY="157.0" text="Fahim">
          <font>
@@ -17,8 +17,14 @@
             <Font size="55.0" />
          </font>
       </Label>
-      <Circle fill="DODGERBLUE" layoutX="419.0" layoutY="391.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="VerdictLabel" layoutX="406.0" layoutY="358.0" style="-fx-background-color: transparent;" text="1">
+      <Circle fx:id="WinningCircle" fill="#00ff59" layoutX="419.0" layoutY="391.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="WinningLabel" layoutX="406.0" layoutY="358.0" style="-fx-background-color: transparent;" text="1">
+         <font>
+            <Font name="System Bold" size="45.0" />
+         </font>
+      </Label>
+      <Circle fx:id="LoosingCircle" fill="RED" layoutX="419.0" layoutY="391.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label fx:id="LossingLabel" layoutX="406.0" layoutY="358.0" style="-fx-background-color: transparent;" text="1">
          <font>
             <Font name="System Bold" size="45.0" />
          </font>

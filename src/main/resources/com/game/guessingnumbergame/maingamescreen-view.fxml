@@ -12,12 +12,12 @@
    <children>
       <AnchorPane prefHeight="169.0" prefWidth="861.0">
          <children>
-            <TextField layoutX="58.0" layoutY="63.0" prefHeight="44.0" prefWidth="344.0" promptText="Enter your name">
+            <TextField fx:id="UserName" layoutX="58.0" layoutY="63.0" prefHeight="44.0" prefWidth="344.0" promptText="Enter your name">
                <font>
                   <Font size="21.0" />
                </font>
             </TextField>
-            <Button layoutX="431.0" layoutY="62.0" mnemonicParsing="false" text="Submit">
+            <Button fx:id="submitButton" layoutX="431.0" layoutY="62.0" mnemonicParsing="false" onAction="#setSubmitButton" text="Submit">
                <font>
                   <Font size="21.0" />
                </font>
@@ -27,7 +27,7 @@
                   <Font size="31.0" />
                </font>
             </Label>
-            <Label fx:id="attempts_left" layoutX="774.0" layoutY="62.0">
+            <Label fx:id="attempts_left" layoutX="774.0" layoutY="62.0" text="2">
                <font>
                   <Font size="31.0" />
                </font>
@@ -41,12 +41,12 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="380.0" layoutY="60.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="103.0" style="-fx-cursor: hand;" text="Generate" textFill="#dd1515">
+            <Button fx:id="GenerateButton" layoutX="380.0" layoutY="60.0" mnemonicParsing="false" onAction="#GenerateButton" prefHeight="32.0" prefWidth="103.0" style="-fx-cursor: hand;" text="Generate" textFill="#dd1515">
                <font>
                   <Font size="19.0" />
                </font>
             </Button>
-            <Label fx:id="hiddenLabel" layoutX="85.0" layoutY="119.0" style="visibility: hidden;" text="Your Number is Generated. Guess the Number and select the proper Circle" textFill="#c31b1b">
+            <Label fx:id="hiddenLabel" layoutX="85.0" layoutY="119.0" style="visibility: hidden;" textFill="#c31b1b">
                <font>
                   <Font size="21.0" />
                </font>
@@ -54,26 +54,26 @@
          </children></AnchorPane>
       <AnchorPane prefHeight="360.0" prefWidth="861.0">
          <children>
-            <Circle fx:id="circle_1" fill="#80ff00eb" layoutX="174.0" layoutY="95.0" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle_2" fill="#80ff00" layoutX="665.0" layoutY="95.0" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle_3" fill="#80ff00" layoutX="174.0" layoutY="250.0" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fx:id="circle_4" fill="#80ff00" layoutX="671.0" layoutY="250.0" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
-            <Label layoutX="160.0" layoutY="67.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="1">
+            <Circle fx:id="circle_1" fill="#80ff00eb" layoutX="174.0" layoutY="95.0" onMouseClicked="#CircleClick" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle_2" fill="#80ff00" layoutX="665.0" layoutY="95.0" onMouseClicked="#CircleClick" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle_3" fill="#80ff00" layoutX="174.0" layoutY="250.0" onMouseClicked="#CircleClick" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="circle_4" fill="#80ff00" layoutX="671.0" layoutY="250.0" onMouseClicked="#CircleClick" radius="72.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="label1" layoutX="160.0" layoutY="67.0" onMouseClicked="#LabelClick" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="1">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="650.0" layoutY="60.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="2">
+            <Label fx:id="label2" layoutX="650.0" layoutY="60.0" onMouseClicked="#LabelClick" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="2">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="160.0" layoutY="215.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="3">
+            <Label fx:id="label3" layoutX="160.0" layoutY="215.0" onMouseClicked="#LabelClick" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="3">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="650.0" layoutY="215.0" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="4">
+            <Label fx:id="label4" layoutX="650.0" layoutY="215.0" onMouseClicked="#LabelClick" prefHeight="45.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="4">
                <font>
                   <Font size="48.0" />
                </font>
