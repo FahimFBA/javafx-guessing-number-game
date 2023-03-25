@@ -2,17 +2,23 @@ package com.game.guessingnumbergame;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class MainGameScreenController {
     int random;
+    int attempt = 2;
     @FXML
     private TextField UserName;
 
@@ -134,34 +140,50 @@ public class MainGameScreenController {
     @FXML
     void CircleClick(MouseEvent event) {
         Circle clickedCircle = (Circle) event.getSource();
+        attempt--;
 
+        if (attempt > 0)
+        {
+            attempts_left.setText(attempt + "");
+            if (clickedCircle == circle_1) {
+                if (random == 1) {
+                    System.out.println("You Won");
+                } else {
+                    System.out.println("You Lost");
+                }
+            } else if (clickedCircle == circle_2) {
+                if (random == 2) {
+                    System.out.println("You Won");
+                } else {
+                    System.out.println("You Lost");
+                }
 
-        if (clickedCircle == circle_1) {
-            if (random == 1) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
-            }
-        } else if (clickedCircle == circle_2) {
-            if (random == 2) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
-            }
+            } else if (clickedCircle == circle_3) {
+                // Do something for ClickedCircle3
+                if (random == 3) {
+                    System.out.println("You Won");
+                } else {
+                    System.out.println("You Lost");
+                }
+            } else if (clickedCircle == circle_4) {
+                // Do something for ClickedCircle4
+                if (random == 4) {
+                    System.out.println("You Won");
+                } else {
+                    System.out.println("You Lost");}
+        }
 
-        } else if (clickedCircle == circle_3) {
-            // Do something for ClickedCircle3
-            if (random == 3) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
-            }
-        } else if (clickedCircle == circle_4) {
-            // Do something for ClickedCircle4
-            if (random == 4) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
+        }
+        else
+        {
+            // open verdictscreen-view.fxml
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("verdictscreen-view.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
@@ -170,6 +192,8 @@ public class MainGameScreenController {
     @FXML
     void LabelClick(MouseEvent event) {
         Label clickedLabel = (Label) event.getSource();
+        attempt--;
+        attempts_left.setText(attempt + "");
         if (clickedLabel == label1) {
             if (random == 1) {
                 System.out.println("You Won");
