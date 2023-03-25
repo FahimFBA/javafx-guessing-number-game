@@ -137,23 +137,74 @@ public class MainGameScreenController {
 //
 //    }
 
+//    void CallVerdict(boolean win)
+//    {
+//        // open verdictscreen-view.fxml
+//        try {
+//            Parent root = FXMLLoader.load(getClass().getResource("verdictscreen-view.fxml"));
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//            stage.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+//    void CallVerdict(boolean win)
+//    {
+//        // open verdictscreen-view.fxml
+//        try {
+//            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("verdictscreen-view.fxml"));
+//            Parent root = fxmlLoader.load();
+//            VerdictScreenController controller = fxmlLoader.getController();
+//            controller.setVerdict(win);
+//            // send username to verdict screen
+//            controller.setUserName(UserName.getText());
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//            stage.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    void CallVerdict(boolean win)
+    {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("verdictscreen-view.fxml"));
+            Parent root = fxmlLoader.load();
+            VerdictScreenController controller = fxmlLoader.getController();
+            controller.setVerdict(win, UserName.getText());
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
     @FXML
     void CircleClick(MouseEvent event) {
         Circle clickedCircle = (Circle) event.getSource();
         attempt--;
 
-        if (attempt > 0)
+        if (attempt > 0 && attempt <= 2)
         {
             attempts_left.setText(attempt + "");
             if (clickedCircle == circle_1) {
                 if (random == 1) {
                     System.out.println("You Won");
+                    CallVerdict(true);
                 } else {
                     System.out.println("You Lost");
                 }
             } else if (clickedCircle == circle_2) {
                 if (random == 2) {
                     System.out.println("You Won");
+                    CallVerdict(true);
                 } else {
                     System.out.println("You Lost");
                 }
@@ -162,6 +213,7 @@ public class MainGameScreenController {
                 // Do something for ClickedCircle3
                 if (random == 3) {
                     System.out.println("You Won");
+                    CallVerdict(true);
                 } else {
                     System.out.println("You Lost");
                 }
@@ -169,58 +221,58 @@ public class MainGameScreenController {
                 // Do something for ClickedCircle4
                 if (random == 4) {
                     System.out.println("You Won");
+                    CallVerdict(true);
                 } else {
                     System.out.println("You Lost");}
         }
 
         }
-        else
+        else if (attempt <= 0)
         {
-            // open verdictscreen-view.fxml
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("verdictscreen-view.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            CallVerdict(false);
         }
-
     }
 
     @FXML
     void LabelClick(MouseEvent event) {
         Label clickedLabel = (Label) event.getSource();
         attempt--;
-        attempts_left.setText(attempt + "");
-        if (clickedLabel == label1) {
-            if (random == 1) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
-            }
-        } else if (clickedLabel == label2) {
-            if (random == 2) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
-            }
+        if (attempt > 0 && attempt <= 2) {
+            attempts_left.setText(attempt + "");
+            if (clickedLabel == label1) {
+                if (random == 1) {
+                    System.out.println("You Won");
+                    CallVerdict(true);
+                } else {
+                    System.out.println("You Lost");
+                }
+            } else if (clickedLabel == label2) {
+                if (random == 2) {
+                    System.out.println("You Won");
+                    CallVerdict(true);
+                } else {
+                    System.out.println("You Lost");
+                }
 
-        } else if (clickedLabel == label3) {
-            // Do something for ClickedCircle3
-            if (random == 3) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
+            } else if (clickedLabel == label3) {
+                // Do something for ClickedCircle3
+                if (random == 3) {
+                    System.out.println("You Won");
+                    CallVerdict(true);
+                } else {
+                    System.out.println("You Lost");
+                }
+            } else if (clickedLabel == label4) {
+                // Do something for ClickedCircle4
+                if (random == 4) {
+                    System.out.println("You Won");
+                    CallVerdict(true);
+                } else {
+                    System.out.println("You Lost");
+                }
             }
-        } else if (clickedLabel == label4) {
-            // Do something for ClickedCircle4
-            if (random == 4) {
-                System.out.println("You Won");
-            } else {
-                System.out.println("You Lost");
-            }
+        } else if (attempt < 0) {
+            CallVerdict(false);
         }
 
     }
