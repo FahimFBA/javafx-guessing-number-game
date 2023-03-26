@@ -1,6 +1,10 @@
 # Number Guessing Game
 
-This is a simple number guessing game. The computer will pick a random number between 1 and 100. The player will then try to guess the number. After each guess, the computer will tell the player if the guess is too high or too low. The player wins if they can guess the number within 1 to 4, and the user has to detect the correct number within 2 attempts.
+This is a simple number guessing game. The computer will pick a random number between 1 and 4. 
+The player will then try to guess the number. 
+After each guess, the computer will determine if the guess is right or wrong. 
+The player wins if they can guess the number within 2 attempts, and if the user fails to do so within the given 2 attempts,
+then the user loses. If the user submits their name, then the program also shows the user's name in the output screen.
 
 **The updated and the default branch is the `production` branch.**
 
