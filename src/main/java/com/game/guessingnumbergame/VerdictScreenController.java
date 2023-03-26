@@ -1,5 +1,4 @@
 package com.game.guessingnumbergame;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Circle;
@@ -26,7 +25,6 @@ public class VerdictScreenController {
     private Label WinningLabel;
 
     boolean win;
-
 
     public void setVerdict(boolean win, String text, int lastClicked) {
         this.win = win;
