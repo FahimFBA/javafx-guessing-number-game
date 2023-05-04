@@ -30,5 +30,5 @@ then the user loses. If the user submits their name, then the program also shows
 
 ## How to play
 
-* Simple download the [jar](out/artifacts/GuessingNumberGame_jar/GuessingNumberGame.jar) file and run it.
+* Simply download the [jar](out/artifacts/GuessingNumberGame_jar/GuessingNumberGame.jar) file and run it.
 
